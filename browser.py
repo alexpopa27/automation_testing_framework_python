@@ -1,8 +1,8 @@
 from selenium import webdriver
-from webdriver_manager.chrome import ChromeDriverManager
+from seleniumbase import Driver
 
 class Browser:
-    driver = webdriver.Chrome(ChromeDriverManager().install())
+    driver=Driver()
     driver.maximize_window()
     driver.implicitly_wait(5)
     driver.set_page_load_timeout(10)
