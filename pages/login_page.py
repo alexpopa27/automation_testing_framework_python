@@ -19,7 +19,7 @@ class LoginPage(Browser):
 
     def click_login(self):
         self.driver.find_element(*self.LOGIN_BTN).click()
-        sleep(2)
+
 
     def check_URL(self):
         expected = 'https://www.saucedemo.com/inventory.html'
@@ -27,11 +27,9 @@ class LoginPage(Browser):
         assert actual == expected, 'The URL is wrong'
 
     def error_msg_appears(self, expected_msg):
-        sleep(2)
         try:
             actual_msg = self.driver.find_element(By.CSS_SELECTOR, 'h3[data-test="error"]').text
         except NoSuchElementException:
             actual_msg = 'None'
 
         assert expected_msg == actual_msg, f'Error message is incorrect, expected: {expected_msg}, actual: {actual_msg}'
-        sleep(1)

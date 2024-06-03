@@ -2,8 +2,8 @@ from selenium.webdriver.common.by import By
 from browser import Browser
 from time import sleep
 
-class CheckoutPage(Browser):
 
+class CheckoutPage(Browser):
     CANCEL_BTN = (By.XPATH, '//button[@id="cancel"]')
     CONTINUE_BTN = (By.XPATH, '//input[@id="continue"]')
     FIRST_NAME = (By.ID, 'first-name')
@@ -12,11 +12,9 @@ class CheckoutPage(Browser):
 
     def click_on_cancel(self):
         self.driver.find_element(*self.CANCEL_BTN).click()
-        sleep(1.5)
 
     def click_on_continue(self):
         self.driver.find_element(*self.CONTINUE_BTN).click()
-        sleep(1.5)
 
     def check_error_msg(self, error_msg):
         if error_msg == "Error: First Name is required":
@@ -27,7 +25,6 @@ class CheckoutPage(Browser):
             actual = self.driver.find_element(By.XPATH, '//h3[normalize-space()="Error: Postal Code is required"]').text
 
             assert actual == error_msg, f'Error message is incorrect, expected: {error_msg}, actual: {actual}'
-
 
     def complete_first_name(self, first_name):
         self.driver.find_element(*self.FIRST_NAME).send_keys(first_name)

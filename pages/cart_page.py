@@ -12,7 +12,7 @@ class CartPage(Browser):
 
     def click_on_checkout(self):
         self.driver.find_element(*self.CHECKOUT_BTN).click()
-        sleep(1.5)
+
 
     def checkout_URL_change(self):
         expected = 'https://www.saucedemo.com/checkout-step-one.html'

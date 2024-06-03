@@ -11,7 +11,7 @@ class InventoryPage(Browser):
 
     def click_first_item(self):
         self.driver.find_element(By.LINK_TEXT, 'Sauce Labs Backpack').click()
-        sleep(1)
+
 
     def item_URL(self):
         expected = 'https://www.saucedemo.com/inventory-item.html?id=4'
@@ -24,7 +24,7 @@ class InventoryPage(Browser):
 
     def click_settings_icon(self):
         self.driver.find_element(*self.SETTINGS_ICON).click()
-        sleep(1.5)
+
 
     def settings_list_is_displayed(self):
         actual = self.driver.find_element(*self.SETTINGS_LIST).is_displayed()
@@ -43,7 +43,7 @@ class InventoryPage(Browser):
 
     def add_first_item_in_cart(self):
         self.driver.find_element(By.XPATH, '//button[@id="add-to-cart-sauce-labs-backpack"]').click()
-        sleep(1.5)
+
 
     def find_item_in_cart(self):
         actual = self.driver.find_element(By.XPATH, '//div[@class="inventory_item_name"]').text
